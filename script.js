@@ -1,17 +1,25 @@
-function computerSelection() {
+function computerSelection() 
+{
     let num=Math.floor(Math.random()*3);
-    if(num==0) {
+    if(num==0) 
+    {
         return "rock";
-    } else if(num==1) {
+    } 
+    else if(num==1) 
+    {
         return "paper";
-    } else {
+    } 
+    else 
+    {
         return "scissors";
     }
 }
-function playerSelection() {
+function playerSelection() 
+{
     let answer=prompt("rock, paper, or scissors?");
     answer=answer.toLowerCase();
-    while(answer!="rock"&&answer!="paper"&&answer!="scissors") {
+    while(answer!="rock"&&answer!="paper"&&answer!="scissors") 
+    {
         alert("that's not rock, paper, or scissors!")
         answer=prompt("rock, paper, or scissors?");
         answer=answer.toLowerCase();
