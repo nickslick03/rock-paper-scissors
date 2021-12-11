@@ -1,79 +1,160 @@
-function computerSelection() 
+function fiveRounds()
 {
-    let num=Math.floor(Math.random()*3);
-    if(num==0) 
+    const com = document.querySelector('.computer');
+    const comSelec = document.createElement('div');
+    comSelec.classList.add('comSelec');
+
+    function computerSelection() 
     {
-        return "rock";
-    } 
-    else if(num==1) 
-    {
-        return "paper";
-    } 
-    else 
-    {
-        return "scissors";
-    }
-}
-function playerSelection() 
-{
-    let answer=prompt("rock, paper, or scissors?");
-    answer=answer.toLowerCase();
-    while(answer!="rock"&&answer!="paper"&&answer!="scissors") 
-    {
-        alert("that's not rock, paper, or scissors!")
-        answer=prompt("rock, paper, or scissors?");
-        answer=answer.toLowerCase();
-    }
-    return answer;
-}
-function playRound(computer,player) 
-{
-    if(player=="rock") 
-    {
-        if(computer=="rock") 
+        let num=Math.floor(Math.random()*3);
+        if(num==0) 
         {
-            alert("Tie! rock and rock.");
+            comSelec.textContent = "rock";
+            com.appendChild(comSelec);
+            return "rock";
         } 
-        else if(computer=="paper") 
+        else if(num==1) 
         {
-            alert("You lose! paper beats rock.");
-        } else 
-        {
-            alert("You win! rock beats scissors.");
-        }
-    } 
-    else if(player=="paper") 
-    {
-        if(computer=="rock") 
-        {
-            alert("You win! paper beats rock.");
-        } 
-        else if(computer=="paper") 
-        {
-            alert("Tie. paper and paper.");
+            comSelec.textContent = "paper";
+            com.appendChild(comSelec);
+            return "paper";
         } 
         else 
         {
-            alert("You lose! scissor beats paper.");
+            comSelec.textContent = "scissors";
+            com.appendChild(comSelec);
+            return "scissors";
         }
-    } 
-    else
+    }
+
+    const rock = document.querySelector('#rock');
+    const paper = document.querySelector('#paper');
+    const scissors = document.querySelector('#scissors');
+
+    function rockButton()
     {
-        if(computer=="rock") 
+        playRound(computerSelection(),"rock");
+    }
+    rock.addEventListener('click', rockButton);
+
+    function paperButton()
+    {
+        playRound(computerSelection(),"paper");
+    }
+    paper.addEventListener('click', paperButton);
+
+    function scissorsButton()
+    {
+        playRound(computerSelection(),"scissors");
+    }
+    scissors.addEventListener('click', scissorsButton);
+
+    let cScore = 0;
+    let yScore = 0;
+    const youScoreBox = document.querySelector('#youScore');
+    const youScore = document.createElement('span');
+    youScore.textContent = 0;
+    youScoreBox.appendChild(youScore);
+
+    const comScoreBox = document.querySelector('#comScore')
+    const comScore = document.createElement('span');
+    comScore.textContent = 0;
+    comScoreBox.appendChild(comScore);
+
+    const winner = document.createElement('div');
+    const winnerContainer = document.querySelector('.winnerContainer');
+    winner.classList.add('winner');
+
+    let gameOver = false;
+
+    const playAgain = document.createElement('button');
+    playAgain.textContent = "Play Again"
+    playAgain.classList.add('playAgain');
+    playAgain.addEventListener('click', function(){
+    location.reload()});
+    const playAgainContainer = document.querySelector('.playAgainContainer');
+
+    function playRound(computer,player) 
+    {
+        console.log("computer "+computer);
+        console.log("player "+player);
+        if(player=="rock") 
         {
-            alert("You lose! rock beats scissors.");
+            if(computer=="rock") 
+            {
+                console.log(yScore + " " + cScore);
+            } 
+            else if(computer=="paper") 
+            {
+                comScore.textContent = `${++cScore}`;
+                comScoreBox.appendChild(comScore);
+                console.log(yScore + " " + cScore);
+            } else 
+            {
+                youScore.textContent = `${++yScore}`;
+                youScoreBox.appendChild(youScore);
+                console.log(yScore + " " + cScore);
+            }
         } 
-        else if(computer=="paper") 
+        else if(player=="paper") 
         {
-            alert("You win! scissors beats paper.");
+            if(computer=="rock") 
+            {
+                youScore.textContent = `${++yScore}`;
+                youScoreBox.appendChild(youScore);
+                console.log(yScore + " " + cScore);
+            } 
+            else if(computer=="paper") 
+            {
+                console.log(yScore + " " + cScore);
+            } 
+            else 
+            {
+                comScore.textContent = `${++cScore}`;
+                comScoreBox.appendChild(comScore);
+                console.log(yScore + " " + cScore);
+            }
         } 
-        else 
+        else
         {
-            alert("Tie! scissors and scissors.");
+            if(computer=="rock") 
+            {
+                comScore.textContent = `${++cScore}`;
+                comScoreBox.appendChild(comScore);
+                console.log(yScore + " " + cScore);
+            } 
+            else if(computer=="paper") 
+            {
+                youScore.textContent = `${++yScore}`;
+                youScoreBox.appendChild(youScore);
+                console.log(yScore + " " + cScore);
+            } 
+            else 
+            {
+                console.log(yScore + " " + cScore);
+            }
+        } 
+        if(cScore==5)
+        {
+            winner.textContent = "Computer Wins!"
+            winnerContainer.appendChild(winner);
+            gameOver = true;
         }
-    }   
+        if(yScore==5)
+        {
+            winner.textContent = "You Win!"
+            winnerContainer.appendChild(winner);
+            gameOver = true;
+        }
+        if(gameOver)
+        {
+            rock.removeEventListener('click', rockButton);
+            paper.removeEventListener('click', paperButton);
+            scissors.removeEventListener('click', scissorsButton);
+
+            playAgainContainer.appendChild(playAgain);
+        }
+    }
 }
-for(let i=0;i<5;i++)
-{
-    playRound(computerSelection(),playerSelection());
-}
+
+fiveRounds();
