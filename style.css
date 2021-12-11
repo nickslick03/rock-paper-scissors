@@ -1,3 +1,84 @@
+*{
+    text-align: center; 
+}
+
 h1{
-    text-align: center;
+    margin-bottom:100px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    gap:50px;
+    margin-bottom:100px;
+}
+
+#rock, #paper, #scissors{
+    width:100px;
+    height:100px;
+    font-size:18px;
+    border:solid;
+}
+
+#rock{
+    background-color: rgb(141, 141, 141);
+}
+
+#paper{
+    background-color: white;
+}
+
+#scissors{
+    background-color:rgb(255, 32, 32);
+}
+
+#rock:hover, #paper:hover, #scissors:hover, .playAgain:hover{
+    font-weight:bold;
+    border-width:5px;
+}
+
+#rock:active, #paper:active, #scissors:active{
+    width:90px;
+    height:90px;
+    margin:0px 5px 0px 5px;
+    font-size:16px;
+}
+
+.computer{
+    margin-bottom:60px;
+}
+
+table, tr, th{
+    border:2px solid;
+}
+
+th{
+    padding-left:20px;
+    padding-right:20px;
+}
+
+.table{
+    display:flex;
+    justify-content:center;
+    margin-bottom:50px;
+}
+
+.comSelec{
+    font-size:20px;
+    font-weight:bolder;
+}
+
+.winner{
+    font-size:30px;
+    font-weight:bolder;
+    margin-bottom:50px;
+}
+
+.playAgain{
+    width:150px;
+    height:50px;
+    border:solid;
+    border-width:3px;
+    font-size:16px;
 }
