@@ -3,7 +3,7 @@
 }
 
 h1{
-    margin-bottom:100px;
+    margin-bottom:80px;
 }
 
 .buttons{
@@ -11,7 +11,7 @@ h1{
     justify-content:center;
     align-items: center;
     gap:50px;
-    margin-bottom:100px;
+    margin-bottom:80px;
 }
 
 #rock, #paper, #scissors{
@@ -49,8 +49,8 @@ h1{
     margin-bottom:60px;
 }
 
-table, tr, th{
-    border:2px solid;
+.subTable, #youScore, #comScore{
+    border:solid 3px;
 }
 
 th{
@@ -62,6 +62,21 @@ th{
     display:flex;
     justify-content:center;
     margin-bottom:50px;
+}
+
+#youPlusOne, #comPlusOne{
+    color:rgba(0, 0, 0, 0);
+    font-size: 20px;
+}
+
+.plusOneAnimation{
+    animation-name: plusOne;
+    animation-duration: 1s;
+}
+
+@keyframes plusOne {
+    0%{color:rgba(0, 0, 0, 1);}
+    100%{color:rgba(0, 0, 0, 0);}
 }
 
 .comSelec{

@@ -56,10 +56,13 @@ function fiveRounds()
     youScore.textContent = 0;
     youScoreBox.appendChild(youScore);
 
-    const comScoreBox = document.querySelector('#comScore')
+    const comScoreBox = document.querySelector('#comScore');
     const comScore = document.createElement('span');
     comScore.textContent = 0;
     comScoreBox.appendChild(comScore);
+
+    const youPlusOne = document.getElementById("youPlusOne");
+    const comPlusOne = document.getElementById("comPlusOne");
 
     const winner = document.createElement('div');
     const winnerContainer = document.querySelector('.winnerContainer');
@@ -89,11 +92,15 @@ function fiveRounds()
                 comScore.textContent = `${++cScore}`;
                 comScoreBox.appendChild(comScore);
                 console.log(yScore + " " + cScore);
+                comPlusOne.classList.add('plusOneAnimation');
+                setTimeout(function(){comPlusOne.classList.remove('plusOneAnimation');},1000);
             } else 
             {
                 youScore.textContent = `${++yScore}`;
                 youScoreBox.appendChild(youScore);
                 console.log(yScore + " " + cScore);
+                youPlusOne.classList.add('plusOneAnimation');
+                setTimeout(function(){youPlusOne.classList.remove('plusOneAnimation');},1000);
             }
         } 
         else if(player=="paper") 
@@ -103,6 +110,8 @@ function fiveRounds()
                 youScore.textContent = `${++yScore}`;
                 youScoreBox.appendChild(youScore);
                 console.log(yScore + " " + cScore);
+                youPlusOne.classList.add('plusOneAnimation');
+                setTimeout(function(){youPlusOne.classList.remove('plusOneAnimation');},1000);
             } 
             else if(computer=="paper") 
             {
@@ -113,6 +122,8 @@ function fiveRounds()
                 comScore.textContent = `${++cScore}`;
                 comScoreBox.appendChild(comScore);
                 console.log(yScore + " " + cScore);
+                comPlusOne.classList.add('plusOneAnimation');
+                setTimeout(function(){comPlusOne.classList.remove('plusOneAnimation');},1000);
             }
         } 
         else
@@ -122,12 +133,16 @@ function fiveRounds()
                 comScore.textContent = `${++cScore}`;
                 comScoreBox.appendChild(comScore);
                 console.log(yScore + " " + cScore);
+                comPlusOne.classList.add('plusOneAnimation');
+                setTimeout(function(){comPlusOne.classList.remove('plusOneAnimation');},1000);
             } 
             else if(computer=="paper") 
             {
                 youScore.textContent = `${++yScore}`;
                 youScoreBox.appendChild(youScore);
                 console.log(yScore + " " + cScore);
+                youPlusOne.classList.add('plusOneAnimation');
+                setTimeout(function(){youPlusOne.classList.remove('plusOneAnimation');},1000);
             } 
             else 
             {
