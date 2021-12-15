@@ -89,6 +89,7 @@ function fiveRounds()
             } 
             else if(computer=="paper") 
             {
+                comPlusOne.classList.remove('plusOneAnimation');
                 comScore.textContent = `${++cScore}`;
                 comScoreBox.appendChild(comScore);
                 console.log(yScore + " " + cScore);
@@ -96,6 +97,7 @@ function fiveRounds()
                 setTimeout(function(){comPlusOne.classList.remove('plusOneAnimation');},1000);
             } else 
             {
+                youPlusOne.classList.remove('plusOneAnimation');
                 youScore.textContent = `${++yScore}`;
                 youScoreBox.appendChild(youScore);
                 console.log(yScore + " " + cScore);
@@ -107,6 +109,7 @@ function fiveRounds()
         {
             if(computer=="rock") 
             {
+                youPlusOne.classList.remove('plusOneAnimation');
                 youScore.textContent = `${++yScore}`;
                 youScoreBox.appendChild(youScore);
                 console.log(yScore + " " + cScore);
@@ -119,6 +122,7 @@ function fiveRounds()
             } 
             else 
             {
+                comPlusOne.classList.remove('plusOneAnimation');
                 comScore.textContent = `${++cScore}`;
                 comScoreBox.appendChild(comScore);
                 console.log(yScore + " " + cScore);
@@ -130,6 +134,7 @@ function fiveRounds()
         {
             if(computer=="rock") 
             {
+                comPlusOne.classList.remove('plusOneAnimation');
                 comScore.textContent = `${++cScore}`;
                 comScoreBox.appendChild(comScore);
                 console.log(yScore + " " + cScore);
@@ -138,6 +143,7 @@ function fiveRounds()
             } 
             else if(computer=="paper") 
             {
+                youPlusOne.classList.remove('plusOneAnimation');
                 youScore.textContent = `${++yScore}`;
                 youScoreBox.appendChild(youScore);
                 console.log(yScore + " " + cScore);
